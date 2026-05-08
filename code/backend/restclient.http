@@ -1,0 +1,714 @@
+### ==========================================
+### REST Client API 测试文件
+### 使用 VS Code 的 REST Client 插件运行
+### ==========================================
+
+### 全局变量
+@baseUrl = http://localhost:8000/api/v1
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3OCIsIm5hbWUiOiJUZXN0IFVzZXIiLCJpYXQiOjE1MTYyMzkwMjJ9.test
+@sessionId = 00000000-0000-0000-0000-000000000000
+@idolId = 00000000-0000-0000-0000-000000000000
+@noteId = 00000000-0000-0000-0000-000000000000
+@workId = 00000000-0000-0000-0000-000000000000
+@friendId = 00000000-0000-0000-0000-000000000000
+@customAiId = 00000000-0000-0000-0000-000000000000
+@accountId = 00000000-0000-0000-0000-000000000000
+
+
+### ==========================================
+### 健康检查 (Health Check)
+### ==========================================
+
+### 健康检查
+GET {{baseUrl}}/health
+Accept: application/json
+
+
+### ==========================================
+### 认证相关 (Authentication)
+### ==========================================
+
+### 用户注册
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123",
+  "email": "test@example.com",
+  "phone": "13800138000"
+}
+
+### 用户登录
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
+
+
+### ==========================================
+### 用户相关 (User Management)
+### ==========================================
+
+### 获取用户信息
+GET {{baseUrl}}/user/info
+Authorization: Bearer {{token}}
+
+### 更新用户信息
+PUT {{baseUrl}}/user/update
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nickname": "测试用户",
+  "avatar": "https://example.com/avatar.jpg",
+  "email": "newemail@example.com",
+  "gender": 1,
+  "birthday": "1990-01-01",
+  "bio": "这是我的个人简介"
+}
+
+### 修改密码
+PUT {{baseUrl}}/user/change-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "old_password": "password123",
+  "new_password": "newpassword456"
+}
+
+### 搜索用户
+GET {{baseUrl}}/user/search?keyword=xyh
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### AI 聊天 (AI Chat)
+### ==========================================
+
+### 获取聊天会话列表
+GET {{baseUrl}}/chat/sessions?page=1&page_size=10
+Authorization: Bearer {{token}}
+
+### 创建聊天会话
+POST {{baseUrl}}/chat/sessions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "我的第一次对话"
+}
+
+### 获取聊天会话详情
+GET {{baseUrl}}/chat/sessions/{{sessionId}}
+Authorization: Bearer {{token}}
+
+### 删除聊天会话
+DELETE {{baseUrl}}/chat/sessions/{{sessionId}}
+Authorization: Bearer {{token}}
+
+### 获取会话消息列表
+GET {{baseUrl}}/chat/sessions/{{sessionId}}/messages?page=1&page_size=50
+Authorization: Bearer {{token}}
+
+### 发送聊天消息
+POST {{baseUrl}}/chat/sessions/{{sessionId}}/messages
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "session_id": "{{sessionId}}",
+  "content": "你好，我今天心情不太好，能陪我聊聊吗？"
+}
+
+
+### ==========================================
+### 专属 AI (Custom AI)
+### ==========================================
+
+### 获取专属AI列表
+GET {{baseUrl}}/chat/custom-ais
+Authorization: Bearer {{token}}
+
+### 创建专属AI
+POST {{baseUrl}}/chat/custom-ais
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "小暖",
+  "avatar": "https://example.com/avatar.jpg",
+  "personality": ["温柔", "善良", "幽默"],
+  "style": "温暖治愈系",
+  "background": "一位善解人意的陪伴者",
+  "nickname": "暖暖",
+  "catchphrase": "有我在，一切都会好起来的～"
+}
+
+### 获取专属AI详情
+GET {{baseUrl}}/chat/custom-ais/{{customAiId}}
+Authorization: Bearer {{token}}
+
+### 更新专属AI
+PUT {{baseUrl}}/chat/custom-ais/{{customAiId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "小暖（更新版）",
+  "avatar": "https://example.com/avatar2.jpg",
+  "personality": ["温柔", "善良", "幽默", "聪明"],
+  "style": "温暖治愈系",
+  "background": "一位非常善解人意的陪伴者",
+  "nickname": "暖暖酱",
+  "catchphrase": "有我在，一切都会好起来的！"
+}
+
+### 删除专属AI
+DELETE {{baseUrl}}/chat/custom-ais/{{customAiId}}
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 好友管理 (Friends Management)
+### ==========================================
+
+### 获取好友列表
+GET {{baseUrl}}/friends
+Authorization: Bearer {{token}}
+
+### 获取好友申请列表
+GET {{baseUrl}}/friends/requests
+Authorization: Bearer {{token}}
+
+### 添加好友
+POST {{baseUrl}}/friends/requests
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "friend_id": "{{friendId}}",
+  "message": "你好，我想和你成为好友"
+}
+
+### 处理好友申请（接受/拒绝）
+PUT {{baseUrl}}/friends/requests/{{friendId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "friendship_id": "{{friendId}}",
+  "action": "accept"
+}
+
+### 获取好友消息列表
+GET {{baseUrl}}/friends/messages?page=1&page_size=20
+Authorization: Bearer {{token}}
+
+### 发送好友消息
+POST {{baseUrl}}/friends/messages
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "to_user_id": "{{friendId}}",
+  "content": "你好呀！最近怎么样？",
+  "message_type": "text"
+}
+
+### 获取与指定好友的聊天记录
+GET {{baseUrl}}/friends/messages/{{friendId}}?page=1&page_size=50
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 偶像管理 (Idol Management)
+### ==========================================
+
+### 获取偶像列表
+GET {{baseUrl}}/idols
+Authorization: Bearer {{token}}
+
+### 创建偶像
+POST {{baseUrl}}/idols
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "爱因斯坦",
+  "avatar": "https://example.com/einstein.jpg",
+  "description": "20世纪最伟大的物理学家之一，相对论的提出者",
+  "category": "科学家"
+}
+
+### 获取偶像详情
+GET {{baseUrl}}/idols/{{idolId}}
+Authorization: Bearer {{token}}
+
+### 更新偶像
+PUT {{baseUrl}}/idols/{{idolId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "爱因斯坦（更新版）",
+  "avatar": "https://example.com/einstein2.jpg",
+  "description": "20世纪最伟大的物理学家，相对论的提出者，诺贝尔物理学奖获得者",
+  "category": "科学家"
+}
+
+### 删除偶像
+DELETE {{baseUrl}}/idols/{{idolId}}
+Authorization: Bearer {{token}}
+
+### 获取偶像语录列表
+GET {{baseUrl}}/idols/{{idolId}}/quotes
+Authorization: Bearer {{token}}
+
+### 创建偶像语录
+POST {{baseUrl}}/idols/{{idolId}}/quotes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "idol_id": "{{idolId}}",
+  "content": "想象力比知识更重要"
+}
+
+### 删除偶像语录
+DELETE {{baseUrl}}/idols/{{idolId}}/quotes/00000000-0000-0000-0000-000000000000
+Authorization: Bearer {{token}}
+
+### 获取偶像作品列表
+GET {{baseUrl}}/idols/{{idolId}}/works
+Authorization: Bearer {{token}}
+
+### 创建偶像作品
+POST {{baseUrl}}/idols/{{idolId}}/works
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "idol_id": "{{idolId}}",
+  "title": "相对论",
+  "description": "改变了人类对时间和空间的理解",
+  "work_type": "论文"
+}
+
+### 删除偶像作品
+DELETE {{baseUrl}}/idols/{{idolId}}/works/00000000-0000-0000-0000-000000000000
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 笔记管理 (Notes Management)
+### ==========================================
+
+### 获取笔记列表
+GET {{baseUrl}}/notes?page=1&page_size=20
+Authorization: Bearer {{token}}
+
+### 创建笔记
+POST {{baseUrl}}/notes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "今日待办",
+  "content": "1. 完成项目文档\n2. 给妈妈打电话\n3. 运动30分钟\n4. 阅读30分钟",
+  "color": "#FFE4B5",
+  "is_pinned": false
+}
+
+### 获取笔记详情
+GET {{baseUrl}}/notes/{{noteId}}
+Authorization: Bearer {{token}}
+
+### 更新笔记
+PUT {{baseUrl}}/notes/{{noteId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "今日待办（已更新）",
+  "content": "1. ✅ 完成项目文档\n2. 给妈妈打电话\n3. 运动30分钟\n4. 阅读30分钟",
+  "color": "#FFE4B5",
+  "is_pinned": true
+}
+
+### 删除笔记
+DELETE {{baseUrl}}/notes/{{noteId}}
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 记账管理 (Account Records)
+### ==========================================
+
+### 获取记账记录列表
+GET {{baseUrl}}/accounts?page=1&page_size=20
+Authorization: Bearer {{token}}
+
+### 创建记账记录
+POST {{baseUrl}}/accounts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "record_type": "expense",
+  "amount": 5000,
+  "category": "餐饮",
+  "description": "午餐 - 和朋友聚餐",
+  "date": "2024-11-08"
+}
+
+### 创建收入记录
+POST {{baseUrl}}/accounts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "record_type": "income",
+  "amount": 500000,
+  "category": "工资",
+  "description": "11月工资",
+  "date": "2024-11-01"
+}
+
+### 获取记账记录详情
+GET {{baseUrl}}/accounts/{{accountId}}
+Authorization: Bearer {{token}}
+
+### 更新记账记录
+PUT {{baseUrl}}/accounts/{{accountId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "record_type": "expense",
+  "amount": 6000,
+  "category": "餐饮",
+  "description": "午餐 - 和朋友聚餐（更新金额）",
+  "date": "2024-11-08"
+}
+
+### 删除记账记录
+DELETE {{baseUrl}}/accounts/{{accountId}}
+Authorization: Bearer {{token}}
+
+### 获取记账汇总
+GET {{baseUrl}}/accounts/summary
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 鼓励卡片 (Encourage Cards)
+### ==========================================
+
+### 获取随机鼓励卡片
+GET {{baseUrl}}/encourage/random
+Authorization: Bearer {{token}}
+
+### 获取鼓励卡片列表
+GET {{baseUrl}}/encourage/list
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 哲学命题 (Philosophy Cards)
+### ==========================================
+
+### 获取随机哲学命题
+GET {{baseUrl}}/philosophy/random
+Authorization: Bearer {{token}}
+
+### 获取哲学命题列表
+GET {{baseUrl}}/philosophy/list
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 温暖板块 (Warmth Content)
+### ==========================================
+
+### 生成情书
+POST {{baseUrl}}/warmth/love-letter
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "致我最爱的人",
+  "content": "亲爱的，感谢你一直以来的陪伴...",
+  "to_name": "亲爱的",
+  "from_name": "你的挚爱"
+}
+
+### 记录拥抱
+POST {{baseUrl}}/warmth/hug
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 写作交流 (Writing Community)
+### ==========================================
+
+### 获取写作作品列表
+GET {{baseUrl}}/writing/works?page=1&page_size=10
+Authorization: Bearer {{token}}
+
+### 创建写作作品
+POST {{baseUrl}}/writing/works
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "致青春的一封信",
+  "content": "亲爱的青春，感谢你赋予我勇气和梦想。在那些最美好的日子里，我们一起笑过、哭过、疯狂过...",
+  "category": "prose",
+  "tags": ["青春", "回忆", "成长", "感悟"]
+}
+
+### 获取写作作品详情
+GET {{baseUrl}}/writing/works/{{workId}}
+Authorization: Bearer {{token}}
+
+### 更新写作作品
+PUT {{baseUrl}}/writing/works/{{workId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "致青春的一封信（修订版）",
+  "content": "亲爱的青春，感谢你赋予我勇气和梦想。在那些最美好的日子里，我们一起笑过、哭过、疯狂过。现在回想起来，每一个瞬间都是如此珍贵...",
+  "category": "prose",
+  "tags": ["青春", "回忆", "成长", "感悟", "人生"]
+}
+
+### 删除写作作品
+DELETE {{baseUrl}}/writing/works/{{workId}}
+Authorization: Bearer {{token}}
+
+### 获取作品评论列表
+GET {{baseUrl}}/writing/works/{{workId}}/comments?page=1&page_size=20
+Authorization: Bearer {{token}}
+
+### 创建作品评论
+POST {{baseUrl}}/writing/works/{{workId}}/comments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "work_id": "{{workId}}",
+  "parent_id": null,
+  "content": "写得真好！深有同感，青春真的是最美好的时光。"
+}
+
+### 回复评论
+POST {{baseUrl}}/writing/works/{{workId}}/comments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "work_id": "{{workId}}",
+  "parent_id": "00000000-0000-0000-0000-000000000000",
+  "content": "谢谢你的认同，让我们珍惜当下吧！"
+}
+
+### 点赞作品
+POST {{baseUrl}}/writing/works/{{workId}}/like
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 私人空间 (Private Space)
+### ==========================================
+
+### 获取私人空间设置
+GET {{baseUrl}}/private/settings
+Authorization: Bearer {{token}}
+
+### 更新私人空间设置
+PUT {{baseUrl}}/private/settings
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "light_color": "#667eea",
+  "light_intensity": 7
+}
+
+### 获取私人空间音乐列表
+GET {{baseUrl}}/private/music
+Authorization: Bearer {{token}}
+
+### 添加私人空间音乐
+POST {{baseUrl}}/private/music
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "夜曲",
+  "artist": "周杰伦",
+  "url": "https://example.com/music/yequ.mp3"
+}
+
+### 删除私人空间音乐
+DELETE {{baseUrl}}/private/music/00000000-0000-0000-0000-000000000000
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 常用测试场景 (Common Test Scenarios)
+### ==========================================
+
+### 场景1: 新用户注册并登录
+# 1. 注册
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "newuser001",
+  "password": "password123",
+  "email": "newuser001@example.com"
+}
+
+# 2. 登录（注册成功后）
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "newuser001",
+  "password": "password123"
+}
+
+### 场景2: 用户使用AI聊天完整流程
+# 1. 创建会话
+POST {{baseUrl}}/chat/sessions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "心理咨询"
+}
+
+# 2. 发送消息（需要先从上一步响应中获取 session_id）
+POST {{baseUrl}}/chat/sessions/{{sessionId}}/messages
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "session_id": "{{sessionId}}",
+  "content": "我最近压力很大，该怎么办？"
+}
+
+# 3. 获取消息历史
+GET {{baseUrl}}/chat/sessions/{{sessionId}}/messages?page=1&page_size=50
+Authorization: Bearer {{token}}
+
+### 场景3: 用户记账完整流程
+# 1. 创建支出记录
+POST {{baseUrl}}/accounts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "record_type": "expense",
+  "amount": 3500,
+  "category": "购物",
+  "description": "买衣服",
+  "date": "2024-11-08"
+}
+
+# 2. 创建收入记录
+POST {{baseUrl}}/accounts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "record_type": "income",
+  "amount": 500000,
+  "category": "工资",
+  "description": "11月工资",
+  "date": "2024-11-01"
+}
+
+# 3. 查看汇总
+GET {{baseUrl}}/accounts/summary
+Authorization: Bearer {{token}}
+
+### 场景4: 写作社区互动流程
+# 1. 创建作品
+POST {{baseUrl}}/writing/works
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "我的故事",
+  "content": "这是一个关于成长的故事...",
+  "category": "story",
+  "tags": ["成长", "故事"]
+}
+
+# 2. 点赞作品
+POST {{baseUrl}}/writing/works/{{workId}}/like
+Authorization: Bearer {{token}}
+
+# 3. 评论作品
+POST {{baseUrl}}/writing/works/{{workId}}/comments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "work_id": "{{workId}}",
+  "content": "很棒的故事！"
+}
+
+
+### ==========================================
+### 错误测试 (Error Testing)
+### ==========================================
+
+### 测试未授权访问
+GET {{baseUrl}}/user/info
+
+### 测试无效的 token
+GET {{baseUrl}}/user/info
+Authorization: Bearer invalid_token_here
+
+### 测试无效的请求数据（缺少必填字段）
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser"
+}
+
+### 测试无效的 UUID
+GET {{baseUrl}}/notes/invalid-uuid
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 性能测试建议 (Performance Testing)
+### ==========================================
+
+# 可以使用 Apache Bench (ab) 或 wrk 进行压力测试
+# 例如：
+# ab -n 1000 -c 10 -H "Authorization: Bearer YOUR_TOKEN" http://localhost:8000/api/v1/health
+
+### ==========================================
+### 注意事项 (Notes)
+### ==========================================
+
+# 1. 请先执行注册/登录接口，获取真实的 token
+# 2. 将返回的 token 替换到 @token 变量中
+# 3. 某些接口需要先创建资源，再使用返回的 ID 进行后续操作
+# 4. UUID 格式的 ID 需要使用实际返回的值
+# 5. 所有需要认证的接口都需要在 Header 中添加 Authorization: Bearer {token}
+# 6. 时间格式统一使用 ISO 8601 或 YYYY-MM-DD
+# 7. 金额单位为分（cent），需要乘以100，例如 50.00 元 = 5000 分
+

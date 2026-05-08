@@ -1,0 +1,264 @@
+/**
+ * 炫酷动画特效库
+ */
+
+// 发光脉冲动画
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20rpx rgba(0, 217, 255, 0.4),
+                0 0 40rpx rgba(0, 217, 255, 0.2),
+                0 0 60rpx rgba(0, 217, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30rpx rgba(0, 217, 255, 0.6),
+                0 0 60rpx rgba(0, 217, 255, 0.4),
+                0 0 90rpx rgba(0, 217, 255, 0.2);
+  }
+}
+
+// 霓虹文字动画
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 10rpx #fff,
+      0 0 20rpx #fff,
+      0 0 30rpx #fff,
+      0 0 40rpx #00D9FF,
+      0 0 70rpx #00D9FF,
+      0 0 80rpx #00D9FF,
+      0 0 100rpx #00D9FF,
+      0 0 150rpx #00D9FF;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+// 彩虹边框动画
+@keyframes rainbow-border {
+  0% {
+    border-color: #FF0055;
+    box-shadow: 0 0 20rpx rgba(255, 0, 85, 0.5);
+  }
+  20% {
+    border-color: #FF6B00;
+    box-shadow: 0 0 20rpx rgba(255, 107, 0, 0.5);
+  }
+  40% {
+    border-color: #FFD600;
+    box-shadow: 0 0 20rpx rgba(255, 214, 0, 0.5);
+  }
+  60% {
+    border-color: #00FF88;
+    box-shadow: 0 0 20rpx rgba(0, 255, 136, 0.5);
+  }
+  80% {
+    border-color: #00D9FF;
+    box-shadow: 0 0 20rpx rgba(0, 217, 255, 0.5);
+  }
+  100% {
+    border-color: #FF00D6;
+    box-shadow: 0 0 20rpx rgba(255, 0, 214, 0.5);
+  }
+}
+
+// 渐变背景动画
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// 粒子浮动动画
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20rpx) rotate(5deg);
+  }
+  75% {
+    transform: translateY(-10rpx) rotate(-5deg);
+  }
+}
+
+// 3D 翻转动画
+@keyframes flip-3d {
+  0% {
+    transform: perspective(400rpx) rotateY(0);
+  }
+  100% {
+    transform: perspective(400rpx) rotateY(360deg);
+  }
+}
+
+// 波浪动画
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-50%) translateZ(0) scaleY(0.8);
+  }
+  100% {
+    transform: translateX(-100%) translateZ(0) scaleY(1);
+  }
+}
+
+// 缩放脉冲
+@keyframes scale-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// 旋转发光
+@keyframes rotate-glow {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+// 震动效果
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10rpx);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10rpx);
+  }
+}
+
+// 淡入上升
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(60rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 淡入缩放
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// 滑入动画
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// 弹跳动画
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// 光束扫描
+@keyframes scan {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// 数字雨效果
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+// 工具类
+.glow-effect {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.neon-text {
+  animation: neon-flicker 1.5s ease-in-out infinite;
+}
+
+.rainbow-border {
+  animation: rainbow-border 3s linear infinite;
+}
+
+.gradient-bg {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.scale-pulse {
+  animation: scale-pulse 2s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.bounce-in {
+  animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

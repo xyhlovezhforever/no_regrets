@@ -1,0 +1,498 @@
+{
+	"pages": [
+		{
+			"path": "pages/welcome/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/emotion/index",
+			"style": {
+				"navigationBarTitleText": "情感陪伴",
+				"navigationBarBackgroundColor": "#0a0e27",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/leisure/index",
+			"style": {
+				"navigationBarTitleText": "休闲娱乐",
+				"navigationBarBackgroundColor": "#0a0e27",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/daily/index",
+			"style": {
+				"navigationBarTitleText": "我的日常",
+				"navigationBarBackgroundColor": "#0a0e27",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/binding/detail",
+			"style": {
+				"navigationBarTitleText": "权限管理",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/binding/data",
+			"style": {
+				"navigationBarTitleText": "数据查看",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/auth/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/auth/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/ai/chat-list",
+			"style": {
+				"navigationBarTitleText": "AI 陪伴"
+			}
+		},
+		{
+			"path": "pages/ai/custom-ai",
+			"style": {
+				"navigationBarTitleText": "创建专属AI"
+			}
+		},
+		{
+			"path": "pages/ai/chat",
+			"style": {
+				"navigationBarTitleText": "聊天",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/ai/phone-call",
+			"style": {
+				"navigationBarTitleText": "语音通话",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/daily/inspiration",
+			"style": {
+				"navigationBarTitleText": "每日灵感",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/encourage/index",
+			"style": {
+				"navigationBarTitleText": "每日鼓励"
+			}
+		},
+		{
+			"path": "pages/encourage/list",
+			"style": {
+				"navigationBarTitleText": "鼓励卡片"
+			}
+		},
+		{
+			"path": "pages/philosophy/index",
+			"style": {
+				"navigationBarTitleText": "人生哲理"
+			}
+		},
+		{
+			"path": "pages/philosophy/list",
+			"style": {
+				"navigationBarTitleText": "哲理命题"
+			}
+		},
+		{
+			"path": "pages/warmth/index",
+			"style": {
+				"navigationBarTitleText": "温情篇"
+			}
+		},
+		{
+			"path": "pages/warmth/love-letter",
+			"style": {
+				"navigationBarTitleText": "写情书"
+			}
+		},
+		{
+			"path": "pages/warmth/family-words",
+			"style": {
+				"navigationBarTitleText": "亲子话语"
+			}
+		},
+		{
+			"path": "pages/warmth/hug",
+			"style": {
+				"navigationBarTitleText": "给自己一个拥抱"
+			}
+		},
+		{
+			"path": "pages/loveLetter/detail",
+			"style": {
+				"navigationBarTitleText": "情书详情"
+			}
+		},
+		{
+			"path": "pages/loveLetter/write",
+			"style": {
+				"navigationBarTitleText": "写情书"
+			}
+		},
+		{
+			"path": "pages/idol/index",
+			"style": {
+				"navigationBarTitleText": "我的偶像"
+			}
+		},
+		{
+			"path": "pages/idol/detail",
+			"style": {
+				"navigationBarTitleText": "偶像详情"
+			}
+		},
+		{
+			"path": "pages/idol/edit",
+			"style": {
+				"navigationBarTitleText": "编辑偶像"
+			}
+		},
+		{
+			"path": "pages/games/index",
+			"style": {
+				"navigationBarTitleText": "游戏中心",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/games/level-select",
+			"style": {
+				"navigationBarTitleText": "选择关卡",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/games/bubble-pop",
+			"style": {
+				"navigationBarTitleText": "扎气球",
+				"navigationBarBackgroundColor": "#f093fb",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/games/memory-card",
+			"style": {
+				"navigationBarTitleText": "记忆翻牌",
+				"navigationBarBackgroundColor": "#4facfe",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/games/puzzle",
+			"style": {
+				"navigationBarTitleText": "拼图游戏",
+				"navigationBarBackgroundColor": "#43e97b",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/games/whack-mole",
+			"style": {
+				"navigationBarTitleText": "打地鼠",
+				"navigationBarBackgroundColor": "#fa709a",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/writing/index",
+			"style": {
+				"navigationBarTitleText": "创作交流",
+				"navigationBarBackgroundColor": "#ffecd2",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/release/index",
+			"style": {
+				"navigationBarTitleText": "释放篇"
+			}
+		},
+		{
+			"path": "pages/release/brain-teaser",
+			"style": {
+				"navigationBarTitleText": "脑筋急转弯",
+				"navigationBarBackgroundColor": "#a8edea",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/release/count-sheep",
+			"style": {
+				"navigationBarTitleText": "失眠数羊",
+				"navigationBarBackgroundColor": "#0f2027",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/daily/topic",
+			"style": {
+				"navigationBarTitleText": "今日话题",
+				"navigationBarBackgroundColor": "#ffecd2",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/forum/index",
+			"style": {
+				"navigationBarTitleText": "论坛",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/forum/create",
+			"style": {
+				"navigationBarTitleText": "发布内容",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/forum/detail",
+			"style": {
+				"navigationBarTitleText": "帖子详情",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/release/mini-game",
+			"style": {
+				"navigationBarTitleText": "泡泡大作战",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/release/memory-card",
+			"style": {
+				"navigationBarTitleText": "记忆翻牌",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/release/writing-create",
+			"style": {
+				"navigationBarTitleText": "发布作品"
+			}
+		},
+		{
+			"path": "pages/release/writing-list",
+			"style": {
+				"navigationBarTitleText": "写作交流"
+			}
+		},
+		{
+			"path": "pages/release/writing-detail",
+			"style": {
+				"navigationBarTitleText": "作品详情"
+			}
+		},
+		{
+			"path": "pages/self/index",
+			"style": {
+				"navigationBarTitleText": "自我管理"
+			}
+		},
+		{
+			"path": "pages/self/mirror",
+			"style": {
+				"navigationBarTitleText": "照镜子",
+				"backgroundColor": "#000000",
+				"navigationBarBackgroundColor": "#000000",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/self/account",
+			"style": {
+				"navigationBarTitleText": "记账本"
+			}
+		},
+		{
+			"path": "pages/self/account-edit",
+			"style": {
+				"navigationBarTitleText": "记账"
+			}
+		},
+		{
+			"path": "pages/self/account-monthly",
+			"style": {
+				"navigationBarTitleText": "月账单"
+			}
+		},
+		{
+			"path": "pages/self/account-yearly",
+			"style": {
+				"navigationBarTitleText": "年账单"
+			}
+		},
+		{
+			"path": "pages/self/note",
+			"style": {
+				"navigationBarTitleText": "便签"
+			}
+		},
+		{
+			"path": "pages/self/note-edit",
+			"style": {
+				"navigationBarTitleText": "编辑便签"
+			}
+		},
+		{
+			"path": "pages/tools/index",
+			"style": {
+				"navigationBarTitleText": "生活工具"
+			}
+		},
+		{
+			"path": "pages/tools/watermark-remover",
+			"style": {
+				"navigationBarTitleText": "去文档水印"
+			}
+		},
+		{
+			"path": "pages/tools/md-editor",
+			"style": {
+				"navigationBarTitleText": "Markdown编辑器"
+			}
+		},
+		{
+			"path": "pages/user/center",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path": "pages/user/profile",
+			"style": {
+				"navigationBarTitleText": "编辑资料"
+			}
+		},
+		{
+			"path": "pages/user/settings",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/friends/list",
+			"style": {
+				"navigationBarTitleText": "好友"
+			}
+		},
+		{
+			"path": "pages/friends/add-friend",
+			"style": {
+				"navigationBarTitleText": "添加好友"
+			}
+		},
+		{
+			"path": "pages/friends/requests",
+			"style": {
+				"navigationBarTitleText": "好友申请"
+			}
+		},
+		{
+			"path": "pages/friends/chat",
+			"style": {
+				"navigationBarTitleText": "聊天"
+			}
+		},
+		{
+			"path": "pages/private/space",
+			"style": {
+				"navigationBarTitleText": "私人空间",
+				"navigationBarBackgroundColor": "#000000",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/private/pet",
+			"style": {
+				"navigationBarTitleText": "我的宠物",
+				"navigationBarBackgroundColor": "#87CEEB",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/binding/index",
+			"style": {
+				"navigationBarTitleText": "账号绑定",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "你没有遗憾",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#00D9FF",
+		"backgroundColor": "#0f1429",
+		"borderStyle": "white",
+		"list": [
+			{
+				"pagePath": "pages/emotion/index",
+				"text": "❤️温暖"
+			},
+			{
+				"pagePath": "pages/leisure/index",
+				"text": "⚡玩乐"
+			},
+			{
+				"pagePath": "pages/daily/index",
+				"text": "⭐生活"
+			},
+			{
+				"pagePath": "pages/binding/index",
+				"text": "🔗绑定"
+			},
+			{
+				"pagePath": "pages/user/center",
+				"text": "🔮空间"
+			}
+		]
+	}
+}

@@ -1,0 +1,53 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT DISTINCT ON (gs.user_id)\n            gs.score,\n            gs.time_spent,\n            u.id as user_id,\n            u.username,\n            u.nickname as \"nickname?\",\n            u.avatar as \"avatar?\"\n        FROM game_scores gs\n        JOIN users u ON gs.user_id = u.id\n        WHERE gs.game_type = $1 AND gs.level = $2\n        ORDER BY gs.user_id, gs.score DESC, gs.time_spent ASC\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "score",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "time_spent",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "user_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "username",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "nickname?",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 5,
+        "name": "avatar?",
+        "type_info": "Varchar"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "7f191201414c0b3f19eb910da7afd80fbd826f595dac62fa2f635249dc613a18"
+}

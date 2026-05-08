@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+.DS_Store
+*.local
+*.log
+.env.local
+.env.*.local
+unpackage
+.hbuilderx
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

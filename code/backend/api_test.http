@@ -1,0 +1,196 @@
+### REST Client API 测试文件
+### 使用 VS Code 的 REST Client 插件运行
+
+@baseUrl = http://localhost:8000/api/v1
+@token = your_access_token_here
+
+### ==================== 健康检查 ====================
+
+### 健康检查
+GET {{baseUrl}}/health
+
+### ==================== 认证相关 ====================
+
+### 用户注册
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123",
+  "email": "test@example.com"
+}
+
+### 用户登录
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
+
+### ==================== 用户相关 ====================
+
+### 获取用户信息
+GET {{baseUrl}}/user/info
+Authorization: Bearer {{token}}
+
+### 更新用户信息
+PUT {{baseUrl}}/user/update
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nickname": "新昵称",
+  "bio": "这是我的个人简介",
+  "gender": 1
+}
+
+### 修改密码
+PUT {{baseUrl}}/user/change-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "old_password": "password123",
+  "new_password": "newpassword456"
+}
+
+### ==================== AI 聊天 ====================
+
+### 创建聊天会话
+POST {{baseUrl}}/ai/chat/session
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "我的第一次对话"
+}
+
+### 发送聊天消息
+POST {{baseUrl}}/ai/chat/message
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "session_id": "session-uuid-here",
+  "content": "你好，我今天心情不太好"
+}
+
+### 获取聊天会话列表
+GET {{baseUrl}}/ai/chat/sessions?page=1&page_size=10
+Authorization: Bearer {{token}}
+
+### 获取会话消息列表
+GET {{baseUrl}}/ai/chat/messages/session-uuid-here?page=1&page_size=50
+Authorization: Bearer {{token}}
+
+### ==================== 鼓励卡片 ====================
+
+### 获取今日鼓励卡片
+GET {{baseUrl}}/content/encourage/today
+Authorization: Bearer {{token}}
+
+### 获取鼓励卡片列表
+GET {{baseUrl}}/content/encourage/list?page=1&page_size=10
+Authorization: Bearer {{token}}
+
+### ==================== 哲理命题 ====================
+
+### 获取今日哲理命题
+GET {{baseUrl}}/content/philosophy/today
+Authorization: Bearer {{token}}
+
+### 获取哲理命题列表
+GET {{baseUrl}}/content/philosophy/list?page=1&page_size=10
+Authorization: Bearer {{token}}
+
+### ==================== 写作交流 ====================
+
+### 创建写作作品
+POST {{baseUrl}}/writing/create
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "致青春的一封信",
+  "content": "亲爱的青春，感谢你赋予我勇气和梦想...",
+  "category": "prose",
+  "tags": ["青春", "回忆", "成长"]
+}
+
+### 获取写作作品列表
+GET {{baseUrl}}/writing/list?page=1&page_size=10
+Authorization: Bearer {{token}}
+
+### 点赞作品
+POST {{baseUrl}}/writing/like/work-uuid-here
+Authorization: Bearer {{token}}
+
+### 创建评论
+POST {{baseUrl}}/writing/comment
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "work_id": "work-uuid-here",
+  "content": "写得真好！"
+}
+
+### ==================== 记账 ====================
+
+### 创建记账记录
+POST {{baseUrl}}/account/create
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "record_type": "expense",
+  "amount": 5000,
+  "category": "餐饮",
+  "description": "午餐",
+  "date": "2024-01-15"
+}
+
+### 获取记账记录列表
+GET {{baseUrl}}/account/list?page=1&page_size=20
+Authorization: Bearer {{token}}
+
+### 获取统计信息
+GET {{baseUrl}}/account/statistics?start_date=2024-01-01&end_date=2024-01-31
+Authorization: Bearer {{token}}
+
+### ==================== 便签 ====================
+
+### 创建便签
+POST {{baseUrl}}/note/create
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "今日待办",
+  "content": "1. 完成项目文档\n2. 给妈妈打电话\n3. 运动30分钟",
+  "color": "#FFE4B5",
+  "is_pinned": false
+}
+
+### 获取便签列表
+GET {{baseUrl}}/note/list?page=1&page_size=20
+Authorization: Bearer {{token}}
+
+### 更新便签
+PUT {{baseUrl}}/note/update/note-uuid-here
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "今日待办（已更新）",
+  "content": "1. ✅ 完成项目文档\n2. 给妈妈打电话\n3. 运动30分钟",
+  "is_pinned": true
+}
+
+### 删除便签
+DELETE {{baseUrl}}/note/delete/note-uuid-here
+Authorization: Bearer {{token}}
+

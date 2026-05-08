@@ -1,0 +1,70 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT \n            l.id,\n            l.title,\n            l.content,\n            l.to_name,\n            l.from_name,\n            COALESCE(l.is_read, false) as \"is_read!\",\n            l.created_at,\n            l.user_id as from_user_id,\n            l.to_user_id\n        FROM love_letters l\n        WHERE l.id = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "title",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "content",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "to_name",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "from_name",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 5,
+        "name": "is_read!",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 6,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 7,
+        "name": "from_user_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 8,
+        "name": "to_user_id",
+        "type_info": "Uuid"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      null,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "3e13631e7908e5ff4c419f6cf8d2669fd35827b4709289373af7d2d68054780d"
+}

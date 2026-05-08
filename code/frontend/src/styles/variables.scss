@@ -1,0 +1,91 @@
+/**
+ * 全局变量 - 炫酷增强版
+ */
+
+:root {
+  // 霓虹主题色 - 高对比度
+  --primary-color: #00D9FF;
+  --primary-glow: 0 0 20rpx rgba(0, 217, 255, 0.6);
+  --secondary-color: #FF00D6;
+  --secondary-glow: 0 0 20rpx rgba(255, 0, 214, 0.6);
+  --accent-color: #FFD600;
+  --accent-glow: 0 0 20rpx rgba(255, 214, 0, 0.6);
+  
+  --success-color: #00FF88;
+  --warning-color: #FF6B00;
+  --error-color: #FF0055;
+  --info-color: #8B5CF6;
+
+  // 渐变色
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-fire: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-ocean: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-sunset: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --gradient-purple: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --gradient-neon: linear-gradient(135deg, #FF00D6 0%, #00D9FF 50%, #FFD600 100%);
+  --gradient-cyber: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+
+  // 背景色 - 深色科技感
+  --bg-color: #0a0e27;
+  --bg-white: #1a1f3a;
+  --bg-gray: #13182e;
+  --bg-card: #1e2442;
+
+  // 文字颜色 - 高对比
+  --text-color: #ffffff;
+  --text-secondary: #b8c5d6;
+  --text-placeholder: #6b7b93;
+  --text-disabled: #4a5568;
+  --text-glow: 0 0 10rpx rgba(255, 255, 255, 0.5);
+
+  // 边框颜色 - 发光效果
+  --border-color: #2d3748;
+  --border-light: #374151;
+  --border-glow: #00D9FF;
+
+  // 阴影 - 增强立体感
+  --shadow-sm: 0 2rpx 8rpx rgba(0, 217, 255, 0.1);
+  --shadow-md: 0 8rpx 24rpx rgba(0, 217, 255, 0.2);
+  --shadow-lg: 0 16rpx 48rpx rgba(0, 217, 255, 0.3);
+  --shadow-neon: 0 0 30rpx rgba(0, 217, 255, 0.5), 
+                 0 0 60rpx rgba(255, 0, 214, 0.3);
+  --shadow-glow: 0 0 20rpx currentColor;
+
+  // 圆角 - 更圆润
+  --radius-sm: 8rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+  --radius-xl: 32rpx;
+  --radius-round: 50%;
+
+  // 间距
+  --spacing-xs: 10rpx;
+  --spacing-sm: 20rpx;
+  --spacing-md: 30rpx;
+  --spacing-lg: 40rpx;
+  --spacing-xl: 60rpx;
+
+  // 字体大小
+  --font-xs: 20rpx;
+  --font-sm: 24rpx;
+  --font-md: 28rpx;
+  --font-lg: 32rpx;
+  --font-xl: 36rpx;
+  --font-2xl: 44rpx;
+  --font-3xl: 52rpx;
+}
+
+// 深色主题
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --bg-white: #2c2c2c;
+    --bg-gray: #242424;
+    --text-color: #e5e5e5;
+    --text-secondary: #a8a8a8;
+    --text-placeholder: #6a6a6a;
+    --border-color: #3a3a3a;
+    --border-light: #2f2f2f;
+  }
+}
+

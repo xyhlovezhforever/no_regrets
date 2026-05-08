@@ -1,0 +1,22 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT friend_id FROM friendships\n        WHERE user_id = $1 AND status = 'accepted'\n        UNION\n        SELECT user_id FROM friendships\n        WHERE friend_id = $1 AND status = 'accepted'\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "friend_id",
+        "type_info": "Uuid"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      null
+    ]
+  },
+  "hash": "aa6b59b22e19572b4f73450d36a1c9c6862b3dcc564c00b7509f6e18ef1b18a6"
+}

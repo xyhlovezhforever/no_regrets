@@ -1,0 +1,54 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT \n                gs.score,\n                gs.time_spent,\n                u.id as user_id,\n                u.username,\n                u.nickname as \"nickname?\",\n                u.avatar as \"avatar?\"\n            FROM game_scores gs\n            JOIN users u ON gs.user_id = u.id\n            WHERE gs.user_id = $1 AND gs.game_type = $2 AND gs.level = $3\n            ORDER BY gs.score DESC, gs.time_spent ASC\n            LIMIT 1\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "score",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "time_spent",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 2,
+        "name": "user_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "username",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "nickname?",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 5,
+        "name": "avatar?",
+        "type_info": "Varchar"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text",
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "61a7c11a8d0a03fafe2cb7c2fdb5059d401e4752f4104ed0119d1808431c3598"
+}

@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE love_letters SET is_read = true WHERE id = $1 AND to_user_id = $2",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "3245dcfe8114a693c898e5f5eae97b42a99a38dbb7310ac53d949320f61f16a1"
+}
